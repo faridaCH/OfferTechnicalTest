@@ -1,2 +1,1 @@
-# OfferTechnicalTest 
- description 
+# OfferTechnicalTest

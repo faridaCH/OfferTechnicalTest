@@ -1,9 +1,12 @@
 package com.offertest.UserAPI.entities;
 
 import com.offertest.UserAPI.enumrator.Gender;
+import jdk.jfr.Enabled;
 
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
+@Table(name="USER",schema="PUBLIC",catalog="USER_API")
 public class UserEntity {
     private Integer id;
 private  String username;
@@ -47,7 +50,9 @@ private Gender gender;
         this.country = country;
         this.gender = gender;
     }
-
+@Id
+@Column(name="ID")
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
@@ -55,7 +60,8 @@ private Gender gender;
     public void setId(Integer id) {
         this.id = id;
     }
-
+@Basic
+@Column(name="USERNAME")
     public String getUsername() {
         return username;
     }
@@ -63,7 +69,8 @@ private Gender gender;
     public void setUsername(String username) {
         this.username = username;
     }
-
+    @Basic
+    @Column(name="BIRTHDATE")
     public Date getBirthdate() {
         return birthdate;
     }
@@ -71,7 +78,8 @@ private Gender gender;
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
-
+    @Basic
+    @Column(name="COUNTRY")
     public String getCountry() {
         return country;
     }
@@ -79,7 +87,8 @@ private Gender gender;
     public void setCountry(String country) {
         this.country = country;
     }
-
+    @Basic
+    @Column(name="PHONE")
     public String getPhone() {
         return phone;
     }
@@ -87,7 +96,9 @@ private Gender gender;
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
+    @Basic
+    @Column(name="GENDER")
+    @Enumerated
     public Gender getGender() {
         return gender;
     }

@@ -1,16 +1,18 @@
 package com.offertest.UserAPI.entities;
 
-import com.offertest.UserAPI.enumrator.Gender;
-import jdk.jfr.Enabled;
+import com.offertest.UserAPI.enumerator.Gender;
+
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
+
 @Entity
 @Table(name="USER",schema="PUBLIC",catalog="USER_API")
 public class UserEntity {
-    private Integer id;
+    private int id;
 private  String username;
-private Date birthdate;
+private LocalDate birthdate;
 private String country;
 private String phone;
 private Gender gender;
@@ -19,14 +21,14 @@ private Gender gender;
         super();
     }
 
-    public UserEntity(Integer id, String username, Date birthdate, String country) {
+    public UserEntity(int id, String username, LocalDate birthdate, String country) {
         this.id = id;
         this.username = username;
         this.birthdate = birthdate;
         this.country = country;
     }
 
-    public UserEntity(Integer id, String username, Date birthdate, String country, String phone, Gender gender) {
+    public UserEntity(int id, String username, LocalDate birthdate, String country, String phone, Gender gender) {
         this.id = id;
         this.username = username;
         this.birthdate = birthdate;
@@ -35,7 +37,7 @@ private Gender gender;
         this.gender = gender;
     }
 
-    public UserEntity(Integer id, String username, Date birthdate, String country, String phone) {
+    public UserEntity(int id, String username, LocalDate birthdate, String country, String phone) {
         this.id = id;
         this.username = username;
         this.birthdate = birthdate;
@@ -43,7 +45,7 @@ private Gender gender;
         this.phone = phone;
     }
 
-    public UserEntity(Integer id, String username, Date birthdate, String country, Gender gender) {
+    public UserEntity(int id, String username, LocalDate birthdate, String country, Gender gender) {
         this.id = id;
         this.username = username;
         this.birthdate = birthdate;
@@ -53,11 +55,11 @@ private Gender gender;
 @Id
 @Column(name="ID")
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 @Basic
@@ -71,11 +73,11 @@ private Gender gender;
     }
     @Basic
     @Column(name="BIRTHDATE")
-    public Date getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Date birthdate) {
+    public void setBirthdate (LocalDate  birthdate) {
         this.birthdate = birthdate;
     }
     @Basic
